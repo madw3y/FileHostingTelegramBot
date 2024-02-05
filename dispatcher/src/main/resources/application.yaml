@@ -1,0 +1,25 @@
+server:
+  port: 8084
+  ssl:
+    enabled: false
+
+bot:
+  name: file_hosting_madwey_bot
+  token: 6333760487:AAEkMMdtK8nz8_R93eKqMpWXNcHO_rChKf8
+  uri: https://cyan-jeans-flow.loca.lt
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: madwey
+    password: madwey
+    queues:
+      text-message-update: text_message_update
+      doc-message-update: doc_message_update
+      photo-message-update: photo_message_update
+      answer-message: answer_message
+
+
+
+
