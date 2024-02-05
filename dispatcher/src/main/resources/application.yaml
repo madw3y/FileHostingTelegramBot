@@ -6,7 +6,7 @@ server:
 bot:
   name: file_hosting_madwey_bot
   token: 6333760487:AAEkMMdtK8nz8_R93eKqMpWXNcHO_rChKf8
-  uri: https://cyan-jeans-flow.loca.lt
+  uri: https://tall-beans-pump.loca.lt
 
 spring:
   rabbitmq:

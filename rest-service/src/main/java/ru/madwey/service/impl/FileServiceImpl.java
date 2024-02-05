@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import ru.madwey.CryptoTool;
 import ru.madwey.entity.AppDocument;
 import ru.madwey.entity.AppPhoto;
+import ru.madwey.exception.IncorrectFileIdException;
 import ru.madwey.repository.AppDocumentRepository;
 import ru.madwey.repository.AppPhotoRepository;
 import ru.madwey.service.FileService;
@@ -25,15 +26,22 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public Optional<AppDocument> getDocument(String docId) {
-        //дешифрование id
-        var id = cryptoTool.idOf(docId);
+        var id = decodeFileId(docId);
         return appDocumentRepository.findById(id);
     }
 
     @Override
     public Optional<AppPhoto> getPhoto(String photoId) {
-        //дешифрование id
-        var id = cryptoTool.idOf(photoId);
+        var id = decodeFileId(photoId);
         return appPhotoRepository.findById(id);
+    }
+
+    private Long decodeFileId(String fileId) {
+        var id = cryptoTool.idOf(fileId);
+        if (id == null) {
+            log.error("Неверный id переданного файла");
+            throw new IncorrectFileIdException();
+        }
+        return id;
     }
 }

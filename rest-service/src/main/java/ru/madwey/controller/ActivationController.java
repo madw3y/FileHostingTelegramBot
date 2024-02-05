@@ -3,6 +3,7 @@ package ru.madwey.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.madwey.exception.ActivationUserException;
 import ru.madwey.service.UserActivationService;
 
 @RequiredArgsConstructor
@@ -17,6 +18,6 @@ public class ActivationController {
         if (res) {
             return ResponseEntity.ok().body("Регистрация успешно завершена!");
         }
-        return ResponseEntity.internalServerError().build();
+        throw new ActivationUserException();
     }
 }

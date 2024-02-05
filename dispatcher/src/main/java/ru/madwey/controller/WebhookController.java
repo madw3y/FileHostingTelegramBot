@@ -16,7 +16,6 @@ public class WebhookController {
     @PostMapping("/callback/update")
     public ResponseEntity<?> onUpdateReceived(@RequestBody Update update) {
         updateProcessor.processUpdate(update);
-        //TODO
         return ResponseEntity.ok().build();
     }
 }

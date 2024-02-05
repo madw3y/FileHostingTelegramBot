@@ -18,6 +18,9 @@ public class CryptoTool {
     //Дешифрование id
     public Long idOf(String value) {
         long[] res = hashids.decode(value);
-        return res[0];
+        if (res != null && res.length > 0) {
+            return res[0];
+        }
+        return null;
     }
 }

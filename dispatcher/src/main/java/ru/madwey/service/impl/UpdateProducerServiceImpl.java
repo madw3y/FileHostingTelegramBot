@@ -16,7 +16,6 @@ public class UpdateProducerServiceImpl implements UpdateProducerService {
 
     @Override
     public void produce(String rabbitQueue, Update update) {
-        //TODO для формирования InternalServerError добавить ControllerAdvise
         log.debug(update.getMessage().getText());
         rabbitTemplate.convertAndSend(rabbitQueue, update);
     }
