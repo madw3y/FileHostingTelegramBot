@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: create-binaryContent
+      id: create-rawData
       author: Matvey
       changes:
         - createTable:
-            tableName: binary_content
+            tableName: raw_data
             columns:
               - column:
                   name: id
@@ -13,6 +13,5 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
               - column:
-                  name: file_as_array_of_bytes
-                  type: bytea
-
+                  name: event
+                  type: jsonb
