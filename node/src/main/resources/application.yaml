@@ -18,7 +18,6 @@ spring:
     username: userok
     password: p@ssw0rd
   jpa:
-    generate-ddl: true
     show-sql: true
 
 token: 6333760487:AAEkMMdtK8nz8_R93eKqMpWXNcHO_rChKf8

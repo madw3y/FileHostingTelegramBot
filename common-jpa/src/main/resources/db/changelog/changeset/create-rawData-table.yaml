@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-rawData
+      author: Matvey
+      changes:
+        - createTable:
+            tableName: raw_data
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: event
+                  type: jsonb

@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-binaryContent
+      author: Matvey
+      changes:
+        - createTable:
+            tableName: binary_content
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: file_as_array_of_bytes
+                  type: bytea
+

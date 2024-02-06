@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-appDocument
+      author: Matvey
+      changes:
+        - createTable:
+            tableName: app_document
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: doc_name
+                  type: varchar(255)
+              - column:
+                  name: file_size
+                  type: bigint
+              - column:
+                  name: mime_type
+                  type: varchar(255)
+              - column:
+                  name: telegram_file_id
+                  type: varchar(255)
+              - column:
+                  name: binary_content_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_binary_content
+                    references: binary_content(id)

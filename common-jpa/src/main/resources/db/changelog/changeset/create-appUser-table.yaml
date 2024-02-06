@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-appUser
+      author: Matvey
+      changes:
+        - createTable:
+            tableName: app_user
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: email
+                  type: varchar(255)
+              - column:
+                  name: first_login_date
+                  type: timestamp(6)
+              - column:
+                  name: first_name
+                  type: varchar(255)
+              - column:
+                  name: last_name
+                  type: varchar(255)
+              - column:
+                  name: username
+                  type: varchar(255)
+              - column:
+                  name: telegram_user_id
+                  type: bigint
+              - column:
+                  name: is_active
+                  type: boolean
+              - column:
+                  name: state
+                  type: varchar(255)

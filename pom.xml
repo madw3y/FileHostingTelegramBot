@@ -47,6 +47,12 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>4.25.1</version>
+        </dependency>
+
     </dependencies>
 
 </project>
