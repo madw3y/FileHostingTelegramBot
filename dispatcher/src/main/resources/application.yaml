@@ -6,7 +6,7 @@ server:
 bot:
   name: file_hosting_madwey_bot
   token: 6333760487:AAEkMMdtK8nz8_R93eKqMpWXNcHO_rChKf8
-  uri: https://giant-hounds-mix.loca.lt
+  uri: https://petite-paths-work.loca.lt
 
 spring:
   rabbitmq:

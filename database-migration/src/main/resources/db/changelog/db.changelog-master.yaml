@@ -9,3 +9,7 @@ databaseChangeLog:
       file: db/changelog/changeset/create-appPhoto-table.yaml
   - include:
       file: db/changelog/changeset/create-rawData-table.yaml
+  - include:
+      file: db/changelog/changeset/create-emailIndex.yaml
+  - include:
+      file: db/changelog/changeset/create-telegramUserIdIndex.yaml

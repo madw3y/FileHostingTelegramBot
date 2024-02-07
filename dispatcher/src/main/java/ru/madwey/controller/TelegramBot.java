@@ -4,6 +4,7 @@ import jakarta.annotation.PostConstruct;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.bots.TelegramWebhookBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
@@ -19,7 +20,7 @@ import java.util.List;
 
 @Log4j
 @Controller
-public class TelegramBot extends TelegramWebhookBot {
+public class TelegramBot extends TelegramLongPollingBot {
     @Value("${bot.name}")
     private String botName;
 
@@ -53,17 +54,17 @@ public class TelegramBot extends TelegramWebhookBot {
     private void init() {
         updateProcessor.registerBot(this);
 
-        var setWebhook = SetWebhook.builder()
-                .url(botUri)
-                .build();
-        //передаем наш статичиский адрес на сервер телеги
-        //устанавливаем постоянное соединение
-        //приложение --http--> Proxy server --https--> Telegram server
-        try {
-            this.setWebhook(setWebhook);
-        } catch (TelegramApiException e) {
-            log.error(e);
-        }
+//        var setWebhook = SetWebhook.builder()
+//                .url(botUri)
+//                .build();
+//        //передаем наш статичиский адрес на сервер телеги
+//        //устанавливаем постоянное соединение
+//        //приложение --http--> Proxy server --https--> Telegram server
+//        try {
+//            this.setWebhook(setWebhook);
+//        } catch (TelegramApiException e) {
+//            log.error(e);
+//        }
     }
 
     @Override
@@ -82,12 +83,7 @@ public class TelegramBot extends TelegramWebhookBot {
     }
 
     @Override
-    public BotApiMethod<?> onWebhookUpdateReceived(Update update) {
-        return null;
-    }
-
-    @Override
-    public String getBotPath() {
-        return "/update";
+    public void onUpdateReceived(Update update) {
+        updateProcessor.processUpdate(update);
     }
 }

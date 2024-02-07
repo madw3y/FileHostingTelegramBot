@@ -1,3 +1,10 @@
+server:
+  port: 8081
+
 spring:
   liquibase:
     enabled: true
+  datasource:
+    url: jdbc:postgresql://localhost:5433/pogreb
+    username: userok
+    password: p@ssw0rd

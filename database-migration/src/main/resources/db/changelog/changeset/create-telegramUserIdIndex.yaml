@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: createIndex-for-telegramUserId
+      author: Matvey
+      changes:
+        - createIndex:
+            clustered: true
+            columns:
+              - column:
+                  descending: false
+                  name: telegram_user_id
+            tableName: app_user
+            indexName: idx_telegram_id
+            schemaName: public

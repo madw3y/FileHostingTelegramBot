@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: createIndex-for-email
+      author: Matvey
+      changes:
+        - createIndex:
+            clustered: true
+            columns:
+              - column:
+                  descending: false
+                  name: email
+            tableName: app_user
+            indexName: idx_email
+            schemaName: public
